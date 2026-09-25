@@ -174,3 +174,41 @@
     color: var(--color-foreground);
   }
 }
+
+@utility glass {
+  background: oklch(1 0 0 / 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid oklch(1 0 0 / 0.6);
+  box-shadow: 0 12px 40px -12px oklch(0.51 0.19 277 / 0.25);
+}
+
+@utility glass-soft {
+  background: oklch(1 0 0 / 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.5);
+}
+
+@utility gradient-brand {
+  background-image: linear-gradient(90deg, var(--brand), var(--accent2));
+}
+
+@layer base {
+  body {
+    background: var(--app-background);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-rise {
+  animation: fade-rise 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
