@@ -15,8 +15,8 @@ const titleCase = (s: string) =>
 const nameFromRecipient = (recipient: string) => {
   const r = clean(recipient);
   if (!r) return "there";
-  const emailName = r.includes("@") ? r.split("@")[0] : r;
-  const first = emailName.split(/[.\s_-]/)[0];
+  const emailName = (r.includes("@") ? r.split("@")[0] : r) ?? r;
+  const first = emailName.split(/[.\s_-]/)[0] ?? emailName;
   return titleCase(first.replace(/[^a-zA-Z]/g, "")) || "there";
 };
 
