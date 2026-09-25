@@ -19,6 +19,21 @@
  */
 
 @theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent2: var(--accent2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-violet-tint: var(--violet-tint);
+  --color-sky-tint: var(--sky-tint);
+  --color-brand-tint: var(--brand-tint);
+  --color-accent-tint: var(--accent-tint);
+  --color-success: var(--success);
+  --color-success-tint: var(--success-tint);
+  --color-danger: var(--danger);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,7 +77,24 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
+  --brand: oklch(0.585 0.203 277.1);
+  --brand-foreground: oklch(0.99 0 0);
+  --accent2: oklch(0.715 0.133 215.2);
+  --ink: oklch(0.208 0.042 265.8);
+  --ink-muted: oklch(0.446 0.03 256.8);
+  --ink-subtle: oklch(0.554 0.046 257.4);
+  --brand-tint: oklch(0.93 0.035 277.1);
+  --accent-tint: oklch(0.93 0.045 215.2);
+  --violet-tint: oklch(0.93 0.045 300);
+  --sky-tint: oklch(0.93 0.04 240);
+  --success: oklch(0.58 0.13 158);
+  --success-tint: oklch(0.93 0.05 158);
+  --danger: oklch(0.61 0.2 18);
+  --app-background:
+    radial-gradient(1200px 600px at 15% -10%, oklch(0.87 0.07 277 / 0.85) 0%, transparent 55%),
+    radial-gradient(1000px 700px at 100% 0%, oklch(0.9 0.07 215 / 0.8) 0%, transparent 50%),
+    linear-gradient(160deg, oklch(0.97 0.02 277) 0%, oklch(0.975 0.015 240) 45%, oklch(0.975 0.02 200) 100%);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -141,4 +173,42 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@utility glass {
+  background: oklch(1 0 0 / 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid oklch(1 0 0 / 0.6);
+  box-shadow: 0 12px 40px -12px oklch(0.51 0.19 277 / 0.25);
+}
+
+@utility glass-soft {
+  background: oklch(1 0 0 / 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.5);
+}
+
+@utility gradient-brand {
+  background-image: linear-gradient(90deg, var(--brand), var(--accent2));
+}
+
+@layer base {
+  body {
+    background: var(--app-background);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-rise {
+  animation: fade-rise 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
 }
