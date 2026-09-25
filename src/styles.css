@@ -77,7 +77,24 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
+  --brand: oklch(0.585 0.203 277.1);
+  --brand-foreground: oklch(0.99 0 0);
+  --accent2: oklch(0.715 0.133 215.2);
+  --ink: oklch(0.208 0.042 265.8);
+  --ink-muted: oklch(0.446 0.03 256.8);
+  --ink-subtle: oklch(0.554 0.046 257.4);
+  --brand-tint: oklch(0.93 0.035 277.1);
+  --accent-tint: oklch(0.93 0.045 215.2);
+  --violet-tint: oklch(0.93 0.045 300);
+  --sky-tint: oklch(0.93 0.04 240);
+  --success: oklch(0.58 0.13 158);
+  --success-tint: oklch(0.93 0.05 158);
+  --danger: oklch(0.61 0.2 18);
+  --app-background:
+    radial-gradient(1200px 600px at 15% -10%, oklch(0.87 0.07 277 / 0.85) 0%, transparent 55%),
+    radial-gradient(1000px 700px at 100% 0%, oklch(0.9 0.07 215 / 0.8) 0%, transparent 50%),
+    linear-gradient(160deg, oklch(0.97 0.02 277) 0%, oklch(0.975 0.015 240) 45%, oklch(0.975 0.02 200) 100%);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
