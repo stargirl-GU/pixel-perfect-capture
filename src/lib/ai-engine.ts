@@ -112,7 +112,8 @@ export function generateResearch(opts: {
   const text = clean(prompt);
   const points = splitPoints(prompt);
   const words = text.split(" ").filter(Boolean);
-  const topic = words.slice(0, 8).join(" ") || "the topic";
+  const topic =
+    words.slice(0, 8).join(" ").replace(/[?.!,;:]+$/, "").toLowerCase() || "the topic";
   const isLong = words.length > 60;
 
   const counts: Record<SummaryLength, number> = { brief: 2, standard: 4, detailed: 6 };
